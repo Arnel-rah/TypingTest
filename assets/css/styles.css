@@ -1,0 +1,120 @@
+:root {
+  --primary-orange: #ff8000;
+  --border-radius: 5px;
+  --font-family: "Quicksand", sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 32px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .navbar {
+  background-color: #1f1f1f;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.orange {
+  color: var(--primary-orange);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.demo-btn {
+  background: linear-gradient(to right, #ffa726, #fb8c00);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: 680;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background: transparent;
+  border: 2px solid black;
+  padding: 8px 20px;
+  font-weight: 680;
+  font-size: 0.9em;
+  font-family: var(--font-family);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+body.dark .signup-btn {
+  border: 2px solid var(--primary-orange);
+  color: white;
+  padding: 8px 20px;
+  font-weight: 680;
+  font-size: 0.9em;
+  font-family: var(--font-family);
+}
+
+.separator {
+  font-weight: bold;
+  color: gray;
+}
+
+.theme-toggle-switch {
+  width: 48px;
+  height: 26px;
+  border: 2px solid #ccc;
+  border-radius: 999px;
+  padding: 2px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+body.dark .theme-toggle-switch {
+  background-color: #333;
+  border-color: #777;
+}
+
+.toggle-thumb {
+  height: 22px;
+  width: 22px;
+  background-color: var(--primary-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: white;
+}
