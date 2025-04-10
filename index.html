@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vanilla Typing</title>
-  <link rel="stylesheet" href="assets/css/styles.css"/>
-  <link rel="stylesheet" href="assets/css/responsive.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-<body>
-  <nav class="navbar">
-    <div class="logo">
-      <i class="fa-solid fa-keyboard"></i>
-      <span><span class="orange">V</span>anilla<span class="orange">T</span>yping</span>
-    </div>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vanilla Typing</title>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body>
+    <!-- ================== BARRE DE NAVIGATION START =================== -->
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-keyboard"></i>
+        <span
+          ><span class="orange logo-span">V</span>anilla<span
+            class="orange logo-span"
+            >T</span
+          >yping</span
+        >
+      </div>
 
-    <div class="nav-buttons">
-      <button class="demo-btn">Démo</button>
-      <button class="signup-btn">S’inscrire</button>
-      <i class="fa-regular fa-user icon"></i>
-      <div class="separator">|</div>
-      <div class="theme-toggle-switch" id="theme-switch">
-        <div class="toggle-thumb" id="toggle-thumb">
-          <i class="fa-solid fa-sun" id="theme-icon"></i>
+      <div class="nav-buttons">
+        <button class="demo-btn">Démo</button>
+        <button class="signup-btn">S’inscrire</button>
+        <i class="fa-regular fa-user icon"></i>
+        <div class="separator">|</div>
+        <div class="theme-toggle-switch" id="theme-switch">
+          <div class="toggle-thumb" id="toggle-thumb">
+            <i class="fa-solid fa-sun" id="theme-icon"></i>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <!-- ================== BARRE DE NAVIGATION END =================== -->
 
-  <script src="assets/js/script.js"></script>
-</body>
+    <!-- ================ MAIN CONTENU START ================ -->
+    <main class="home-container">
+      <h1 class="title">BIENVENU AU VANILLA TYPING</h1>
+      <hr class="divider" />
+      <section class="difficulty-section">
+        <h2>Choisissez le niveau de difficulté du test</h2>
+        <div class="difficulty-options">
+          <div class="difficulty-card facile">
+            <span class="emoji">😁</span>
+            <p>Facile</p>
+          </div>
+          <div class="difficulty-card ordinaire">
+            <span class="emoji">😎</span>
+            <p>Ordinaire</p>
+          </div>
+          <div class="difficulty-card dur">
+            <span class="emoji">😡</span>
+            <p>Dur</p>
+          </div>
+        </div>
+      </section>
+      <section class="duration-section">
+        <h2>Choisissez la durée du test</h2>
+        <div class="duration-options">
+          <div class="duration-card une-minute" data-duration="1">
+            <span class="emoji">⏱️</span>
+            <p>1 Minute</p>
+          </div>
+          <div class="duration-card trois-minutes" data-duration="3">
+            <span class="emoji">⏲️</span>
+            <p>3 Minutes</p>
+          </div>
+          <div class="duration-card cinq-minutes" data-duration="5">
+            <span class="emoji">🕒</span>
+            <p>5 Minutes</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ================ MAIN CONTENU FIN ================ -->
+
+    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/animation.js"></script> -->
+  </body>
 </html>

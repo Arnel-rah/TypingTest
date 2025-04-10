@@ -1,4 +1,4 @@
-// --- Dark mode toggle ---
+// ============= Dark mode toggle ================ //
 const body = document.body;
 const themeIcon = document.getElementById("theme-icon");
 const toggleThumb = document.getElementById("toggle-thumb");
@@ -24,7 +24,45 @@ function toggleDarkMode() {
 
 document.getElementById("theme-switch").addEventListener("click", toggleDarkMode);
 
-// Load saved theme
+
 const savedTheme = localStorage.getItem("theme") || "light";
 applyTheme(savedTheme);
+
+
+// ============== Gestion des cartes de difficulte =============== //
+
+let selectedDifficulty = null;
+let selectedDuration = null;
+document.querySelectorAll(".difficulty-card").forEach(card => {
+  card.addEventListener("click", () => {
+    if (card.classList.contains("facile")) {
+      selectedDifficulty = "facile";
+    } else if (card.classList.contains("ordinaire")) {
+      selectedDifficulty = "ordinaire";
+    } else if (card.classList.contains("dur")) {
+      selectedDifficulty = "dur";
+    }
+    document.querySelectorAll(".difficulty-card").forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+
+    checkSelectionAndRedirect();
+  });
+});
+document.querySelectorAll(".duration-card").forEach(card => {
+  card.addEventListener("click", () => {
+    selectedDuration = card.dataset.duration;
+    document.querySelectorAll(".duration-card").forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+
+    checkSelectionAndRedirect();
+  });
+});
+
+function checkSelectionAndRedirect() {
+  if (selectedDifficulty && selectedDuration) {
+    const url = `typing-test.html?difficulty=${selectedDifficulty}&duration=${selectedDuration}`;
+    window.location.href = url;
+  }
+}
+
 
