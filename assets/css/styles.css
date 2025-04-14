@@ -1,57 +1,75 @@
+/* ================== VARIABLES CSS ================== */
 :root {
   --primary-orange: #ff8000;
-  --secondary-color : #165BE4;
+  --secondary-color: #165be4;
   --border-radius: 5px;
+  --color-black: #000;
+  --dark-background-color: #121212;
+  --color-white: #ffffff;
   --font-family: "Quicksand", sans-serif;
+  --toggle-background-color: #333;
 }
 
-*{
+/* ================== STYLES GLOBAUX ================== */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
 }
 
+/* MODE SOMBRE DU BODY */
 body {
-  margin: 0;
   font-family: var(--font-family);
   transition: background 0.3s, color 0.3s;
 }
 
 body.dark {
-  background-color: #121212;
-  color: white;
+  background-color: var(--dark-background-color);
+  color: var(--color-white);
 }
 
+/* ================== NAVBAR ================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 32px;
-  background-color: white;
+  background-color: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-body.dark .navbar {
+/* MODE SOMBRE POUR NAVBAR ET CONTENEUR PRINCIPAL */
+body.dark .navbar,
+.main {
   background-color: #1f1f1f;
 }
 
+/* COULEUR DES TITRES DE DIFFICULTÉ ET DURÉE EN DARK MODE */
+.title-difficulty,
+.title-duration {
+  color: var(--color-white);
+}
+
+/* ================== LOGO ================== */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
-.logo-span{
-    font-size: 1.5rem;
+.logo-title {
+  font-size: 1.5rem;
 }
 
 .orange {
   color: var(--primary-orange);
 }
 
+/* ================== BOUTONS DE NAVIGATION ================== */
 .nav-buttons {
   display: flex;
   align-items: center;
@@ -63,15 +81,16 @@ body.dark .navbar {
   border: none;
   padding: 10px 16px;
   border-radius: var(--border-radius);
-  color: white;
+  color: var(--color-white);
   font-weight: 680;
   font-size: 0.8em;
   cursor: pointer;
 }
 
+/* BOUTON "S'INSCRIRE" - CLAIR */
 .signup-btn {
   background: transparent;
-  border: 2px solid black;
+  border: 2px solid var(--color-black);
   padding: 8px 20px;
   font-weight: 680;
   font-size: 0.9em;
@@ -82,25 +101,31 @@ body.dark .navbar {
 
 body.dark .signup-btn {
   border: 2px solid var(--primary-orange);
-  color: white;
+  color: var(--color-white);
   padding: 8px 20px;
   font-weight: 680;
   font-size: 0.9em;
   font-family: var(--font-family);
 }
 
+/* SÉPARATEUR ENTRE BOUTONS */
 .separator {
   font-weight: bold;
-  color: gray;
+  color: var(--color-black);
 }
 
+body.dark .separator {
+  color: var(--color-white);
+}
+
+/* ================== INTERRUPTEUR DU MODE SOMBRE ================== */
 .theme-toggle-switch {
-  width: 48px;
+  width: 50px;
   height: 26px;
   border: 2px solid #ccc;
   border-radius: 999px;
-  padding: 2px;
   background-color: white;
+  /* padding: 3px 0; */
   display: flex;
   align-items: center;
   transition: background 0.3s, border-color 0.3s;
@@ -108,13 +133,14 @@ body.dark .signup-btn {
 }
 
 body.dark .theme-toggle-switch {
-  background-color: #333;
+  background-color: var(--toggle-background-color);
   border-color: #777;
 }
 
+/* BOUTON MOBILE À L'INTÉRIEUR DU SWITCH */
 .toggle-thumb {
-  height: 22px;
-  width: 22px;
+  height: 21px;
+  width: 21px;
   background-color: var(--primary-orange);
   border-radius: 50%;
   display: flex;
@@ -124,20 +150,41 @@ body.dark .theme-toggle-switch {
   color: white;
 }
 
+/* ================== BOUTON DE CHANGEMENT DE LANGUE ================== */
+#languageToggle {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body.dark #languageToggle {
+  color: white;
+}
+
+/* ================== SECTION PRINCIPALE DE LA PAGE D'ACCUEIL ================== */
 .home-container {
   padding: 40px 20px;
   text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../image/mainBg.jpg');  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../image/mainBg.jpg");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+/* ================== TITRE PRINCIPAL ================== */
 .title {
   font-size: 2.5rem;
   color: var(--primary-orange);
   margin-bottom: 10px;
 }
 
+/* ================== LIGNE DE SÉPARATION SOUS LE TITRE ================== */
 .divider {
   width: 100px;
   height: 3px;
@@ -146,10 +193,12 @@ body.dark .theme-toggle-switch {
   border: none;
 }
 
+/* ================== SECTION DES DIFFICULTÉS ================== */
 .difficulty-section {
   margin-bottom: 40px;
 }
 
+/* ================== CONTAINER DES CARTES DE DIFFICULTÉ ================== */
 .difficulty-options {
   display: flex;
   justify-content: center;
@@ -158,6 +207,7 @@ body.dark .theme-toggle-switch {
   margin-top: 20px;
 }
 
+/* ================== CONTAINER DES CARTES DE DURÉE ================== */
 .duration-options {
   display: flex;
   justify-content: center;
@@ -166,6 +216,7 @@ body.dark .theme-toggle-switch {
   margin-top: 15px;
 }
 
+/* ================== STYLE GÉNÉRAL DES CARTES DE DURÉE ================== */
 .duration-card {
   width: 150px;
   height: 150px;
@@ -174,12 +225,8 @@ body.dark .theme-toggle-switch {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    #4e9af1,
-    #1e90ff
-  );
-  color: #000;
+  background: linear-gradient(135deg, #4e9af1, #1e90ff);
+  color: var(--color-black);
   font-weight: 600;
   font-size: 1.1em;
   cursor: pointer;
@@ -187,14 +234,18 @@ body.dark .theme-toggle-switch {
   transition: transform 0.2s, background 0.3s;
 }
 
+/* ================== EFFET AU SURVOL DES CARTES DE DURÉE ================== */
 .duration-card:hover {
   transform: scale(1.05);
 }
 
+/* ================== EMOJI DANS LA CARTE DE DURÉE ================== */
 .duration-card .emoji {
   font-size: 2.5em;
   margin-bottom: 10px;
 }
+
+/* ================== COULEURS DES CARTES SELON LA DURÉE ================== */
 .duration-card.une-minute {
   background: linear-gradient(135deg, #81ecec, #00cec9);
 }
@@ -214,12 +265,12 @@ body.dark .theme-toggle-switch {
   flex-wrap: wrap;
   margin-top: 20px;
 }
-/* =============== DIFFICULTE CARD ================== */
+/* ================== STYLE GÉNÉRAL DES CARTES DE DIFFICULTÉ ================== */
 .difficulty-card {
   width: 150px;
   height: 150px;
   border-radius: 15px;
-  color: white;
+  color: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,15 +282,18 @@ body.dark .theme-toggle-switch {
   cursor: pointer;
 }
 
+/* ================== EFFET AU SURVOL DES CARTES DE DIFFICULTÉ ================== */
 .difficulty-card:hover {
   transform: scale(1.05);
 }
 
+/* ================== EMOJI DANS LA CARTE DE DIFFICULTÉ ================== */
 .difficulty-card .emoji {
-  font-size: 50px;
+  font-size: 70px;
   margin-bottom: 10px;
 }
 
+/* ================== COULEURS DES CARTES SELON LA DIFFICULTÉ ================== */
 .difficulty-card.facile {
   background: linear-gradient(135deg, #56ccf2, #2f80ed);
 }
@@ -252,16 +306,19 @@ body.dark .theme-toggle-switch {
   background: linear-gradient(135deg, #eb5757, #e30f0f);
 }
 
+/* ================== STYLE AU SURVOL POUR LES DEUX TYPES DE CARTES ================== */
 .difficulty-card:hover,
 .duration-card:hover {
   transform: scale(1.05);
 }
 
+/* ================== IMAGE DANS LES CARTES DE DIFFICULTÉ ================== */
 .difficulty-card img {
   width: 60px;
   height: 60px;
 }
 
+/* ================== TEXTE DANS LES CARTES ================== */
 .difficulty-card p,
 .duration-card p {
   margin-top: 10px;
@@ -269,13 +326,86 @@ body.dark .theme-toggle-switch {
   color: #333;
 }
 
-.duration-card i {
-  font-size: 30px;
+/* ================== STYLE SUPPLÉMENTAIRE POUR LES EMOJIS DE DURÉE ================== */
+.duration-card .emoji {
+  font-size: 50px;
   color: var(--primary-orange);
 }
 
+/* ================== STYLE DES CARTES SÉLECTIONNÉES ================== */
 .difficulty-card.selected,
 .duration-card.selected {
   border: 3px solid var(--secondary-color);
   transform: scale(1.05);
+}
+
+/* ================== BOUTON MENU BURGER POUR MOBILE ================== */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-white);
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+    position: relative;
+    bottom: 30px;
+  }
+
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 99;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 80px;
+  }
+
+  .logo {
+    position: relative;
+    top: 10px;
+  }
+  .nav-buttons.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 0;
+    z-index: 99;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .theme-toggle-switch {
+    display: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

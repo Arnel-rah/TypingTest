@@ -2,31 +2,49 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Typing</title>
+
+    <!-- ========== FEUILLES DE STYLES ========== -->
     <link rel="stylesheet" href="assets/css/styles.css"/>
     <link rel="stylesheet" href="assets/css/responsive.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- ========== BIBLIOTHÈQUE D'ANIMATION GSAP ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
+
   <body>
     <!-- ================== BARRE DE NAVIGATION START =================== -->
     <nav class="navbar">
       <div class="logo">
         <i class="fa-solid fa-keyboard"></i>
-        <span
-          ><span class="orange logo-span">V</span>anilla<span
-            class="orange logo-span"
-            >T</span
-          >yping</span
-        >
+        <span>
+          <span class="orange logo-title">V</span>anilla
+          <span class="orange logo-title">T</span>yping
+        </span>
       </div>
 
-      <div class="nav-buttons">
-        <button class="demo-btn">Démo</button>
-        <button class="signup-btn">S’inscrire</button>
+      <!-- BOUTON MENU BURGER POUR MOBILE -->
+      <div class="burger-menu" id="burgerMenu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- BOUTONS DE NAVIGATION -->
+      <div class="nav-buttons" id="navMenu">
+        <button class="demo-btn" data-i18n="demo">Démo</button>
+        <button class="signup-btn" data-i18n="signup">S’inscrire</button>
         <i class="fa-regular fa-user icon"></i>
         <div class="separator">|</div>
+
+        <!-- SELECTEUR DE LANGUE PERSONNALISÉ -->
+        <div class="language-selector">
+          <button id="languageToggle">
+            <span id="flagIcon">🇫🇷</span>
+            <span id="languageCode">FR</span>
+          </button>
+        </div>        
+
+        <!-- INTERRUPTEUR POUR LE THÈME SOMBRE/CLAIR -->
         <div class="theme-toggle-switch" id="theme-switch">
           <div class="toggle-thumb" id="toggle-thumb">
             <i class="fa-solid fa-sun" id="theme-icon"></i>
@@ -36,48 +54,56 @@
     </nav>
     <!-- ================== BARRE DE NAVIGATION END =================== -->
 
-    <!-- ================ MAIN CONTENU START ================ -->
+    <!-- ================== CONTENU PRINCIPAL START =================== -->
     <main class="home-container">
-      <h1 class="title">BIENVENU AU VANILLA TYPING</h1>
+      <h1 class="title" data-i18n="welcome">BIENVENU AU VANILLA TYPING</h1>
       <hr class="divider" />
+
+      <!-- ========== SECTION NIVEAU DE DIFFICULTÉ ========== -->
       <section class="difficulty-section">
-        <h2>Choisissez le niveau de difficulté du test</h2>
+        <h2 class="title-difficulty" data-i18n="choose_difficulty">
+          Choisissez le niveau de difficulté du test
+        </h2>
         <div class="difficulty-options">
           <div class="difficulty-card facile">
-            <span class="emoji">😁</span>
-            <p>Facile</p>
+            <span class="emoji">😄</span>
+            <p data-i18n="easy">Facile</p>
           </div>
           <div class="difficulty-card ordinaire">
             <span class="emoji">😎</span>
-            <p>Ordinaire</p>
+            <p data-i18n="medium">Ordinaire</p>
           </div>
           <div class="difficulty-card dur">
             <span class="emoji">😡</span>
-            <p>Dur</p>
+            <p data-i18n="hard">Dur</p>
           </div>
         </div>
       </section>
+
+      <!-- ========== SECTION DURÉE DU TEST ========== -->
       <section class="duration-section">
-        <h2>Choisissez la durée du test</h2>
+        <h2 class="title-duration" data-i18n="choose_duration">
+          Choisissez la durée du test
+        </h2>
         <div class="duration-options">
           <div class="duration-card une-minute" data-duration="1">
             <span class="emoji">⏱️</span>
-            <p>1 Minute</p>
+            <p data-i18n="1min">1 Minute</p>
           </div>
           <div class="duration-card trois-minutes" data-duration="3">
             <span class="emoji">⏲️</span>
-            <p>3 Minutes</p>
+            <p data-i18n="2min">2 Minutes</p>
           </div>
           <div class="duration-card cinq-minutes" data-duration="5">
             <span class="emoji">🕒</span>
-            <p>5 Minutes</p>
+            <p data-i18n="3min">3 Minutes</p>
           </div>
         </div>
       </section>
     </main>
-    <!-- ================ MAIN CONTENU FIN ================ -->
+    <!-- ================== CONTENU PRINCIPAL END =================== -->
 
+    <!-- ================== SCRIPTS JAVASCRIPT =================== -->
     <script src="assets/js/script.js"></script>
-    <!-- <script src="assets/js/animation.js"></script> -->
   </body>
 </html>
