@@ -1,72 +1,75 @@
-
 /* ----------- Responsive TABLETTE (<= 1024px) ----------- */
 @media (max-width: 1024px) {
-    .navbar {
-      padding: 12px 24px;
-    }
-  
-    .demo-btn,
-    .signup-btn {
-      padding: 8px 14px;
-      font-size: 0.8em;
-    }
-  
-    .logo {
-      font-size: 1rem;
-    }
-  
-    .nav-buttons {
-      gap: 12px;
-    }
+  .navbar {
+    padding: 12px 24px;
+  }
+
+  .demo-btn,
+  .signup-btn {
+    padding: 8px 14px;
+    font-size: 0.8em;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .nav-buttons {
+    gap: 12px;
+  }
+}
+
+/* ----------- Responsive MOBILE (<= 768px) ----------- */
+@media (max-width: 768px) {
+  body {
+    overflow-y: scroll;
   }
   
-  /* ----------- Responsive MOBILE (<= 768px) ----------- */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 20px;
-    }
-  
-    .nav-buttons {
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-    }
-  
-    .demo-btn,
-    .signup-btn {
-      flex: 1 1 auto;
-      width: 48%;
-      font-size: 0.75em;
-    }
-  
-    .theme-toggle-switch {
-      margin-left: auto;
-    }
-  
-    .separator {
-      display: none;
-    }
-  
-    .logo {
-      font-size: 1.2rem;
-    }
-    .difficulty-options{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .duration-card, .difficulty-card {
-      width: 350px;
-      height: 170px;
-    }
-
-    .title{
-      font-size: 2rem;
-    }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 20px;
   }
-  
+
+  .nav-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .demo-btn,
+  .signup-btn {
+    flex: 1 1 auto;
+    width: 48%;
+    font-size: 0.75em;
+  }
+
+  .theme-toggle-switch {
+    margin-left: auto;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+  .difficulty-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .duration-card,
+  .difficulty-card {
+    width: 350px;
+    height: 170px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
