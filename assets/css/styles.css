@@ -1,52 +1,76 @@
+/* ================== VARIABLES CSS ================== */
 :root {
   --primary-orange: #ff8000;
+  --secondary-color: #165be4;
   --border-radius: 5px;
+  --color-black: #000;
+  --dark-background-color: #121212;
+  --color-white: #ffffff;
   --font-family: "Quicksand", sans-serif;
+  --toggle-background-color: #333;
 }
 
-*{
+/* ================== STYLES GLOBAUX ================== */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
 }
 
+/* MODE SOMBRE DU BODY */
 body {
-  margin: 0;
   font-family: var(--font-family);
   transition: background 0.3s, color 0.3s;
+  overflow-y: hidden;
 }
 
 body.dark {
-  background-color: #121212;
-  color: white;
+  background-color: var(--dark-background-color);
+  color: var(--color-white);
 }
 
+/* ================== NAVBAR ================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 32px;
-  background-color: white;
+  background-color: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-body.dark .navbar {
+/* MODE SOMBRE POUR NAVBAR ET CONTENEUR PRINCIPAL */
+body.dark .navbar,
+.main {
   background-color: #1f1f1f;
 }
 
+/* COULEUR DES TITRES DE DIFFICULTÉ ET DURÉE EN DARK MODE */
+.title-difficulty,
+.title-duration {
+  color: var(--color-white);
+}
+
+/* ================== LOGO ================== */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.logo-title {
+  font-size: 1.5rem;
 }
 
 .orange {
   color: var(--primary-orange);
 }
 
+/* ================== BOUTONS DE NAVIGATION ================== */
 .nav-buttons {
   display: flex;
   align-items: center;
@@ -58,15 +82,16 @@ body.dark .navbar {
   border: none;
   padding: 10px 16px;
   border-radius: var(--border-radius);
-  color: white;
+  color: var(--color-white);
   font-weight: 680;
   font-size: 0.8em;
   cursor: pointer;
 }
 
+/* BOUTON "S'INSCRIRE" - CLAIR */
 .signup-btn {
   background: transparent;
-  border: 2px solid black;
+  border: 2px solid var(--color-black);
   padding: 8px 20px;
   font-weight: 680;
   font-size: 0.9em;
@@ -77,25 +102,31 @@ body.dark .navbar {
 
 body.dark .signup-btn {
   border: 2px solid var(--primary-orange);
-  color: white;
+  color: var(--color-white);
   padding: 8px 20px;
   font-weight: 680;
   font-size: 0.9em;
   font-family: var(--font-family);
 }
 
+/* SÉPARATEUR ENTRE BOUTONS */
 .separator {
   font-weight: bold;
-  color: gray;
+  color: var(--color-black);
 }
 
+body.dark .separator {
+  color: var(--color-white);
+}
+
+/* ================== INTERRUPTEUR DU MODE SOMBRE ================== */
 .theme-toggle-switch {
-  width: 48px;
+  width: 50px;
   height: 26px;
   border: 2px solid #ccc;
   border-radius: 999px;
-  padding: 2px;
   background-color: white;
+  /* padding: 3px 0; */
   display: flex;
   align-items: center;
   transition: background 0.3s, border-color 0.3s;
@@ -103,13 +134,14 @@ body.dark .signup-btn {
 }
 
 body.dark .theme-toggle-switch {
-  background-color: #333;
+  background-color: var(--toggle-background-color);
   border-color: #777;
 }
 
+/* BOUTON MOBILE À L'INTÉRIEUR DU SWITCH */
 .toggle-thumb {
-  height: 22px;
-  width: 22px;
+  height: 21px;
+  width: 21px;
   background-color: var(--primary-orange);
   border-radius: 50%;
   display: flex;
@@ -117,4 +149,628 @@ body.dark .theme-toggle-switch {
   justify-content: center;
   transition: transform 0.3s ease;
   color: white;
+}
+
+/* ================== BOUTON DE CHANGEMENT DE LANGUE ================== */
+#languageToggle {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body.dark #languageToggle {
+  color: white;
+}
+
+/* ================== SECTION PRINCIPALE DE LA PAGE D'ACCUEIL ================== */
+.home-container {
+  padding: 40px 20px;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../image/mainBg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ================== TITRE PRINCIPAL ================== */
+.title {
+  font-size: 2.5rem;
+  color: var(--primary-orange);
+  margin-bottom: 10px;
+}
+
+/* ================== LIGNE DE SÉPARATION SOUS LE TITRE ================== */
+.divider {
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-orange);
+  margin: 0 auto 30px auto;
+  border: none;
+}
+
+/* ================== SECTION DES DIFFICULTÉS ================== */
+.difficulty-section {
+  margin-bottom: 40px;
+}
+
+/* ================== CONTAINER DES CARTES DE DIFFICULTÉ ================== */
+.difficulty-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ================== CONTAINER DES CARTES DE DURÉE ================== */
+.duration-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/* ================== STYLE GÉNÉRAL DES CARTES DE DURÉE ================== */
+.duration-card {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4e9af1, #1e90ff);
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.3s;
+}
+
+/* ================== EFFET AU SURVOL DES CARTES DE DURÉE ================== */
+.duration-card:hover {
+  transform: scale(1.05);
+}
+
+/* ================== EMOJI DANS LA CARTE DE DURÉE ================== */
+.duration-card .emoji {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* ================== COULEURS DES CARTES SELON LA DURÉE ================== */
+.duration-card.une-minute {
+  background: linear-gradient(135deg, #81ecec, #00cec9);
+}
+
+.duration-card.trois-minutes {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+}
+
+.duration-card.cinq-minutes {
+  background: linear-gradient(135deg, #fab1a0, #e17055);
+}
+
+.difficulty-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+/* ================== STYLE GÉNÉRAL DES CARTES DE DIFFICULTÉ ================== */
+.difficulty-card {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+/* ================== EFFET AU SURVOL DES CARTES DE DIFFICULTÉ ================== */
+.difficulty-card:hover {
+  transform: scale(1.05);
+}
+
+/* ================== EMOJI DANS LA CARTE DE DIFFICULTÉ ================== */
+.difficulty-card .emoji {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+/* ================== COULEURS DES CARTES SELON LA DIFFICULTÉ ================== */
+.difficulty-card.facile {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+}
+
+.difficulty-card.ordinaire {
+  background: linear-gradient(135deg, #f2994a, #f2c94c);
+}
+
+.difficulty-card.dur {
+  background: linear-gradient(135deg, #eb5757, #e30f0f);
+}
+
+/* ================== STYLE AU SURVOL POUR LES DEUX TYPES DE CARTES ================== */
+.difficulty-card:hover,
+.duration-card:hover {
+  transform: scale(1.05);
+}
+
+/* ================== IMAGE DANS LES CARTES DE DIFFICULTÉ ================== */
+.difficulty-card img {
+  width: 60px;
+  height: 60px;
+}
+
+/* ================== TEXTE DANS LES CARTES ================== */
+.difficulty-card p,
+.duration-card p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ================== STYLE SUPPLÉMENTAIRE POUR LES EMOJIS DE DURÉE ================== */
+.duration-card .emoji {
+  font-size: 50px;
+  color: var(--primary-orange);
+}
+
+/* ================== STYLE DES CARTES SÉLECTIONNÉES ================== */
+.difficulty-card.selected,
+.duration-card.selected {
+  border: 3px solid var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* ================== BOUTON MENU BURGER POUR MOBILE ================== */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-white);
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+    position: relative;
+    bottom: 30px;
+  }
+
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 99;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 80px;
+  }
+
+  .logo {
+    position: relative;
+    top: 10px;
+  }
+  .nav-buttons.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 0;
+    z-index: 99;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .theme-toggle-switch {
+    display: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ========== ZONE DE JEU ========== */
+/* DESIGN MODERNE ET SEXY */
+
+:root {
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --secondary: #fd79a8;
+  --dark: #2d3436;
+  --light: #f8f9fa;
+  --success: #00b894;
+  --error: #ff7675;
+  --warning: #fdcb6e;
+  --card-bg: #ffffff;
+}
+
+.game-container {
+  max-width: 800px;
+  margin: 1.2rem auto;
+  padding: 2rem;
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Quicksand', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+.game-header i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+
+.typing-area {
+  min-height: 180px;
+  padding: 1.5rem;
+  background: var(--color-black);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-size: 1.3rem;
+  line-height: 2;
+  overflow-y: auto;
+}
+
+.text-to-type {
+  margin: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.stat-icon.success {
+  background: var(--success);
+}
+
+.stat-icon.error {
+  background: var(--error);
+}
+
+.stat-icon.primary {
+  background: var(--primary);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.quit-btn, .retry-btn {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.quit-btn {
+  background: var(--light);
+  color: var(--dark);
+}
+
+.quit-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.retry-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.retry-btn:hover {
+  background: #5a4bd6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+.result-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.result-modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.result-modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.chart-container {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.restart-btn {
+  padding: 0.8rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.restart-btn:hover {
+  background: #5a4bd6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+
+.word {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.word.active {
+  /* background: rgba(108, 92, 231, 0.1); */
+  border-radius: 6px;
+  font-size: 1.7rem;
+  font-weight: 850;
+  animation: pulse 2s infinite;
+  padding: 2px 10px;
+}
+
+@keyframes pulse {
+  0% { color: rgba(32, 7, 222, 0.96); }
+  50% { color: rgba(22, 7, 133, 0.946); }
+  100% { color: rgba(20, 3, 150, 0.882); }
+}
+
+.letter {
+  position: relative;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.letter.correct {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.letter.wrong {
+  color: var(--error);
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+/* Modal des résultats */
+.game-result-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.game-result-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-wrapper {
+  background: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header-section {
+  padding: 1.5rem;
+  background: linear-gradient(to right, var(--primary-orange), var(--secondary-blue));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-chart-container {
+  padding: 1.5rem;
+  height: 250px;
+}
+
+.modal-footer-section {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.modal-restart-btn {
+  padding: 0.8rem 2rem;
+  background: var(--primary-orange);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-restart-btn:hover {
+  background: var(--primary-orange-dark);
+  transform: translateY(-2px);
 }
