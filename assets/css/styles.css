@@ -8,6 +8,15 @@
   --color-white: #ffffff;
   --font-family: "Quicksand", sans-serif;
   --toggle-background-color: #333;
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --secondary: #fd79a8;
+  --dark: #2d3436;
+  --light: #f8f9fa;
+  --success: #00b894;
+  --error: #ff7675;
+  --warning: #fdcb6e;
+  --card-bg: #ffffff;
 }
 
 /* ================== STYLES GLOBAUX ================== */
@@ -243,6 +252,7 @@ body.dark #languageToggle {
 
 /* ================== EMOJI DANS LA CARTE DE DURÉE ================== */
 .duration-card .emoji {
+  font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
   font-size: 2.5em;
   margin-bottom: 10px;
 }
@@ -413,20 +423,6 @@ body.dark #languageToggle {
 }
 
 /* ========== ZONE DE JEU ========== */
-/* DESIGN MODERNE ET SEXY */
-
-:root {
-  --primary: #6c5ce7;
-  --primary-light: #a29bfe;
-  --secondary: #fd79a8;
-  --dark: #2d3436;
-  --light: #f8f9fa;
-  --success: #00b894;
-  --error: #ff7675;
-  --warning: #fdcb6e;
-  --card-bg: #ffffff;
-}
-
 .game-container {
   max-width: 800px;
   margin: 1.2rem auto;
@@ -669,20 +665,6 @@ body.dark #languageToggle {
   animation: shake 0.5s;
 }
 
-/* @keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-3px);
-  }
-  75% {
-    transform: translateX(3px);
-  }
-} */
-
-/* Vos styles existants conservés */
 .result-widget {
   position: fixed;
   inset: 0;
