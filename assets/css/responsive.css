@@ -1,5 +1,9 @@
 /* ----------- Responsive TABLETTE (<= 1024px) ----------- */
 @media (max-width: 1024px) {
+  *{
+    box-sizing: border-box;
+  }
+
   .navbar {
     padding: 12px 24px;
   }
