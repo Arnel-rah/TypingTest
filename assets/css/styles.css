@@ -677,8 +677,9 @@ body.dark #languageToggle {
 
 .widget-box {
   background: #ffffff;
-  padding: 1.5rem; /* Augmentation du padding */
-  width: 350px; /* Légère augmentation de la largeur */
+  padding: 1.5rem;
+  width: 350px;
+  height: 450px;
   border-radius: 16px;
   text-align: center;
   position: relative;

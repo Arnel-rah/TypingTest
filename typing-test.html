@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vanilla Typing</title>
 
     <!-- ========== FEUILLES DE STYLES ========== -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <!-- ========== BIBLIOTHÈQUE D'ANIMATION GSAP ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
@@ -62,7 +61,7 @@
       <div class="game-header">
         <div class="mode-box">
           <i class="fa-solid fa-chess-queen"></i>
-          <span data-i18n="Level">Niveau : <strong id="difficultyDisplay" data-i18n="easy">Facile</strong></span>
+          <span>Niveau : <strong id="difficultyDisplay">Facile</strong></span>
         </div>
         <div class="timer-box">
           <i class="fa-solid fa-clock"></i>
@@ -93,7 +92,7 @@
           </div>
           <div class="stat-content">
             <span class="stat-value" id="errorCount">0</span>
-            <span class="stat-label" data-i18n="errors">Erreurs</span>
+            <span class="stat-label">Erreurs</span>
           </div>
         </div>
 
@@ -103,7 +102,7 @@
           </div>
           <div class="stat-content">
             <span class="stat-value" id="wpm">0</span>
-            <span class="stat-label" data-i18n="wpm">Mots/minute</span>
+            <span class="stat-label">Mots/minute</span>
           </div>
         </div>
       </div>
@@ -111,17 +110,17 @@
       <!-- Boutons d'action -->
       <div class="action-buttons">
         <button class="quit-btn" onclick="window.location.href='index.html'">
-          <i class="fa-solid fa-door-open" data-i18n="quit"></i> Quitter
+          <i class="fa-solid fa-door-open"></i> Quitter
         </button>
-        <button class="retry-btn" onclick="startGame()" data-i18n="retry">
-          <i class="fa-solid fa-rotate" ></i> Recommencer
+        <button class="retry-btn" onclick="startGame()">
+          <i class="fa-solid fa-rotate"></i> Recommencer
         </button>
       </div>
     </main>
 
     <!-- Fenêtre de résultat -->
     <div id="resultModal" class="result-widget hidden">
-      <div class="widget-box" data-i18n="stats_title">
+      <div class="widget-box">
         <h3>Statistiques</h3>
         <div class="mini-stats">
           <div>
@@ -130,11 +129,11 @@
           </div>
           <div>
             <i class="fa-solid fa-circle-check"></i
-            ><span id="displayCorrect" data-i18n="correct">0</span><small>Corrects</small>
+            ><span id="displayCorrect">0</span><small>Corrects</small>
           </div>
           <div>
             <i class="fa-solid fa-circle-xmark"></i
-            ><span id="displayErrors" data-i18n="errors">0</span><small>Erreurs</small>
+            ><span id="displayErrors">0</span><small>Erreurs</small>
           </div>
         </div>
     
@@ -145,7 +144,7 @@
         <!-- Bouton centré et agrandi -->
         <div class="button-container">
           <button class="close-widget-btn" onclick="closeModal()">
-            <i class="fa-solid fa-arrow-left" data-i18n="close"></i> Fermer
+            <i class="fa-solid fa-arrow-left"></i> Fermer
           </button>
         </div>
       </div>
