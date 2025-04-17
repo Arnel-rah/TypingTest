@@ -120,28 +120,40 @@
     </main>
 
     <!-- Fenêtre de résultat -->
-    <div id="resultModal" class="game-result-modal hidden">
-      <div class="modal-content-wrapper">
-        <div class="modal-header-section">
-          <h2><i class="fa-solid fa-trophy"></i> Résultats</h2>
-          <button class="modal-close-btn" onclick="closeModal()">
-            &times;
-          </button>
+    <div id="resultModal" class="result-widget hidden">
+      <div class="widget-box">
+        <h3>Statistiques</h3>
+        <div class="mini-stats">
+          <div>
+            <i class="fa-solid fa-gauge-high"></i><span id="displayWpm">0</span
+            ><small>WPM</small>
+          </div>
+          <div>
+            <i class="fa-solid fa-circle-check"></i
+            ><span id="displayCorrect">0</span><small>Corrects</small>
+          </div>
+          <div>
+            <i class="fa-solid fa-circle-xmark"></i
+            ><span id="displayErrors">0</span><small>Erreurs</small>
+          </div>
         </div>
-
-        <div class="modal-chart-container">
-          <canvas id="resultChart"></canvas>
+    
+        <div class="mini-chart">
+          <canvas id="resultChart" height="120"></canvas>
         </div>
-
-        <div class="modal-footer-section">
-          <button class="modal-restart-btn" onclick="startGame(); closeModal()">
-            <i class="fa-solid fa-play"></i> Nouvelle partie
+        
+        <!-- Bouton centré et agrandi -->
+        <div class="button-container">
+          <button class="close-widget-btn" onclick="closeModal()">
+            <i class="fa-solid fa-arrow-left"></i> Fermer
           </button>
         </div>
       </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/logique.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/traduction.js"></script>
   </body>
 </html>
