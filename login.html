@@ -2,18 +2,49 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Typing</title>
-
-    <!-- ========== FEUILLES DE STYLES ========== -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <!-- ========== BIBLIOTHÈQUE D'ANIMATION GSAP ========== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   </head>
-  <body></body>
+  <body>
+    <main class="login-page">
+      <div class="container-login">
+        <div class="left"></div>
+        <div class="right">
+          <h2>Login</h2>
+          <form>
+            <label>Email</label>
+            <div class="input-box">
+             <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Enter your email" required/>
+            </div>
+
+            <label>Password</label>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Enter your password" required/>
+            </div>
+            <a href="#" class="forgot">Forgot Password?</a>
+            <button type="submit" class="login-btn">Log In</button>
+            <div class="divider">
+              <span>Or Continue With</span>
+            </div>
+            <div class="social-icons">
+              <i class="fab fa-google"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-apple"></i>
+            </div>
+
+            <p class="signup">
+              Don’t have an account? <a href="#">Sign Up here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
