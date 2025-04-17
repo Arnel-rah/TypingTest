@@ -17,6 +17,10 @@
   --error: #ff7675;
   --warning: #fdcb6e;
   --card-bg: #ffffff;
+  --button-hover : #5a4bd6;
+  --canvas-chart-bg-color: #f9fafb; 
+  --close-widget-color: #666;
+  --close-widget-hover-color: #ef4444;
 }
 
 /* ================== STYLES GLOBAUX ================== */
@@ -340,7 +344,7 @@ body.dark #languageToggle {
 
 /* ================== STYLE SUPPLÉMENTAIRE POUR LES EMOJIS DE DURÉE ================== */
 .duration-card .emoji {
-  font-size: 50px;
+  font-size: 4rem;
   color: var(--primary-orange);
 }
 
@@ -425,9 +429,9 @@ body.dark #languageToggle {
 /* ========== ZONE DE JEU ========== */
 .game-container {
   max-width: 800px;
-  margin: 1.2rem auto;
+  height: 700px;
+  margin: 1rem auto;
   padding: 2rem;
-  /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); */
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   font-family: var(--font-family)
@@ -439,7 +443,7 @@ body.dark #languageToggle {
   align-items: center;
   padding: 1rem 1.5rem;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
-  color: white;
+  color: var(--light);
   border-radius: 12px;
   margin-bottom: 1.2rem;
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
@@ -504,7 +508,7 @@ body.dark #languageToggle {
   justify-content: center;
   margin-right: 1rem;
   font-size: 1.2rem;
-  color: white;
+  color: var(--light);
 }
 
 .stat-icon.success {
@@ -564,11 +568,11 @@ body.dark #languageToggle {
 
 .retry-btn {
   background: var(--primary);
-  color: white;
+  color: var(--light);
 }
 
 .retry-btn:hover {
-  background: #5a4bd6;
+  background: var(--button-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
 }
@@ -576,7 +580,7 @@ body.dark #languageToggle {
 .modal-header {
   padding: 1.5rem;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
-  color: white;
+  color: var(--light);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -592,7 +596,7 @@ body.dark #languageToggle {
 .close-btn {
   background: none;
   border: none;
-  color: white;
+  color: var(--light);
   font-size: 1.8rem;
   cursor: pointer;
   padding: 0 0.5rem;
@@ -611,7 +615,7 @@ body.dark #languageToggle {
 .restart-btn {
   padding: 0.8rem 2rem;
   background: var(--primary);
-  color: white;
+  color: var(--light);
   border: none;
   border-radius: 50px;
   font-weight: 600;
@@ -623,7 +627,7 @@ body.dark #languageToggle {
 }
 
 .restart-btn:hover {
-  background: #5a4bd6;
+  background: var(--button-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
 }
@@ -676,7 +680,7 @@ body.dark #languageToggle {
 }
 
 .widget-box {
-  background: #ffffff;
+  background: var(--color-white);
   padding: 1.5rem;
   width: 350px;
   height: 450px;
@@ -687,7 +691,6 @@ body.dark #languageToggle {
   animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Nouveau conteneur pour le bouton */
 .button-container {
   display: flex;
   justify-content: center;
@@ -695,27 +698,27 @@ body.dark #languageToggle {
   width: 100%;
 }
 
-/* Style amélioré du bouton */
+
 .close-widget-btn {
-  padding: 12px 30px; /* Taille augmentée */
-  background-color: #f97316;
-  color: white;
+  padding: 12px 30px; 
+  background-color: var(--primary-orange);
+  color: var(--light);
   border: none;
-  border-radius: 12px; /* Bords plus arrondis */
+  border-radius: 12px; 
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 8px;
-  width: auto; /* Largeur automatique basée sur le contenu */
-  min-width: 150px; /* Largeur minimale garantie */
+  width: auto;
+  min-width: 150px;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(249, 115, 22, 0.2);
 }
 
 .close-widget-btn:hover {
-  background-color: #ea580c;
+  background-color: var(--primary-orange);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(249, 115, 22, 0.3);
 }
@@ -732,7 +735,6 @@ body.dark #languageToggle {
   transform: translateX(-3px);
 }
 
-/* Conservez le reste de vos styles existants */
 .widget-box h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
@@ -775,7 +777,7 @@ body.dark #languageToggle {
 .mini-chart canvas {
   margin-top: 8px;
   border-radius: 10px;
-  background: #f9fafb;
+  background: var(--canvas-chart-bg-color);
 }
 
 .close-widget {
@@ -785,13 +787,13 @@ body.dark #languageToggle {
   background: none;
   border: none;
   font-size: 1.2rem;
-  color: #666;
+  color: var(--close-widget-color);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .close-widget:hover {
-  color: #ef4444;
+  color: var(--close-widget-hover-color);
 }
 
 .hidden {
@@ -811,7 +813,6 @@ body.dark #languageToggle {
 
 
 /* ======== LOGIN STYLE ========= */
-
 .login-page{
   width: 100%;
   height: 100vh;
@@ -824,7 +825,7 @@ body.dark #languageToggle {
   margin: 90px auto;
   width: 900px;
   max-width: 100%;
-  background: #fff;
+  background: var(--light);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.485);
   border-radius: 12px;
   overflow: hidden;
@@ -835,7 +836,6 @@ body.dark #languageToggle {
   background: url('../image/bg-left.jpg'), center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -897,7 +897,7 @@ input:-webkit-autofill {
   width: 100%;
   padding: 12px;
   background-color: var(--primary);
-  color: white;
+  color: var(--color-white);
   border: none;
   border-radius: 6px;
   font-size: 16px;
@@ -908,7 +908,7 @@ input:-webkit-autofill {
 }
 
 .login-btn:hover {
-  background-color: #ff4c4c;
+  background-color: var(--close-widget-hover-color);
 }
 
 .divider {
@@ -918,7 +918,7 @@ input:-webkit-autofill {
 }
 
 .divider span {
-  background: #fff;
+  background: var(--color-white);
   padding: 0 10px;
   position: relative;
   z-index: 1;
