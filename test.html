@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Test Chart</h2>
+  <canvas id="resultChart" width="400" height="200" style="border:1px solid red;"></canvas>
+
+  <script>
+    const ctx = document.getElementById("resultChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['WPM', 'Correct', 'Erreur'],
+        datasets: [{
+          label: 'Stats',
+          data: [25, 18, 4],
+          backgroundColor: ['#4caf50', '#2196f3', '#f44336'],
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
