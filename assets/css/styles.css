@@ -35,13 +35,9 @@
 /* MODE SOMBRE DU BODY */
 body {
   font-family: var(--font-family);
-  transition: background 0.3s, color 0.3s;
-  overflow-y: hidden;
-}
-
-body.dark {
   background-color: var(--dark-background-color);
   color: var(--color-white);
+  overflow-y: hidden;
 }
 
 /* ================== NAVBAR ================== */
@@ -49,13 +45,13 @@ body.dark {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 32px;
+  padding: 20px 32px;
   background-color: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* MODE SOMBRE POUR NAVBAR ET CONTENEUR PRINCIPAL */
-body.dark .navbar,
+.navbar,
 .main {
   background-color: #1f1f1f;
 }
@@ -102,10 +98,11 @@ body.dark .navbar,
   cursor: pointer;
 }
 
-/* BOUTON "S'INSCRIRE" - CLAIR */
+/* ================ BOUTON  S'INSCRIRE ============== */
 .signup-btn {
   background: transparent;
-  border: 2px solid var(--color-black);
+  border: 2px solid var(--primary-orange);
+  color: var(--color-white);
   padding: 8px 20px;
   font-weight: 680;
   font-size: 0.9em;
@@ -114,55 +111,14 @@ body.dark .navbar,
   cursor: pointer;
 }
 
-body.dark .signup-btn {
-  border: 2px solid var(--primary-orange);
-  color: var(--color-white);
-  padding: 8px 20px;
-  font-weight: 680;
-  font-size: 0.9em;
-  font-family: var(--font-family);
-}
-
-/* SÉPARATEUR ENTRE BOUTONS */
+/* ===================== SÉPARATEUR ENTRE BOUTONS ============== */
 .separator {
   font-weight: bold;
   color: var(--color-black);
 }
 
-body.dark .separator {
+.separator {
   color: var(--color-white);
-}
-
-/* ================== INTERRUPTEUR DU MODE SOMBRE ================== */
-.theme-toggle-switch {
-  width: 50px;
-  height: 26px;
-  border: 2px solid #ccc;
-  border-radius: 999px;
-  background-color: white;
-  /* padding: 3px 0; */
-  display: flex;
-  align-items: center;
-  transition: background 0.3s, border-color 0.3s;
-  cursor: pointer;
-}
-
-body.dark .theme-toggle-switch {
-  background-color: var(--toggle-background-color);
-  border-color: #777;
-}
-
-/* BOUTON MOBILE À L'INTÉRIEUR DU SWITCH */
-.toggle-thumb {
-  height: 21px;
-  width: 21px;
-  background-color: var(--primary-orange);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  color: white;
 }
 
 /* ================== BOUTON DE CHANGEMENT DE LANGUE ================== */
@@ -177,7 +133,7 @@ body.dark .theme-toggle-switch {
   font-weight: 600;
 }
 
-#flagIcon{
+#flagIcon {
   width: 20px;
   height: 15px;
 }
@@ -191,8 +147,7 @@ body.dark .theme-toggle-switch {
   opacity: 0;
 }
 
-
-body.dark #languageToggle {
+#languageToggle {
   color: white;
 }
 
@@ -202,7 +157,7 @@ body.dark #languageToggle {
   padding: 40px 20px;
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../image/mainBg.jpg");
+    url("../image/bg.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -409,6 +364,7 @@ body.dark #languageToggle {
     position: relative;
     top: 10px;
   }
+
   .nav-buttons.show {
     display: flex;
     flex-direction: column;
@@ -443,7 +399,7 @@ body.dark #languageToggle {
 
 /* ========== ZONE DE JEU ========== */
 .game-container {
-  max-width: 800px;
+  width: 90vw;
   height: 700px;
   margin: 1rem auto;
   padding: 2rem;
@@ -472,24 +428,53 @@ body.dark #languageToggle {
 .typing-area {
   max-height: 270px;
   height: 270px;
-  padding: 1.6rem;
   background: var(--color-black);
   word-wrap: break-word;
   overflow-wrap: break-word;
   border-radius: 15px;
   margin-bottom: 2.2rem;
-  box-shadow: 0 4px 15px rgba(6, 59, 236, 0.825);
   font-size: 1.3rem;
-  line-height: 2;
   overflow-y: hidden;
-  will-change: scroll-position;
   contain: layout;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  animation: rainbowGlow 4s infinite linear;
+  box-shadow: 0 0 20px rgba(6, 59, 236, 0.8);
+}
+
+@keyframes rainbowGlow {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7),
+      0 0 20px 4px rgba(255, 165, 0, 0.6);
+  }
+  25% {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 0, 0.7),
+      0 0 20px 4px rgba(0, 255, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.7),
+      0 0 20px 4px rgba(0, 0, 255, 0.6);
+  }
+  75% {
+    box-shadow: 0 0 10px 2px rgba(128, 0, 128, 0.7),
+      0 0 20px 4px rgba(255, 0, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.7),
+      0 0 20px 4px rgba(255, 165, 0, 0.6);
+  }
 }
 
 .text-to-type {
-  margin: 0 25px;
+  margin: 0;
+  width: 90%;
   line-height: 2;
-  scroll-behavior: smooth;
+  hyphens: auto;
+  text-shadow: 0 0 5px rgba(185, 183, 183, 0.3);
+  animation: fadeIn 0.5s ease-out;
 }
 
 .stats {
@@ -728,15 +713,6 @@ body.dark #languageToggle {
   box-shadow: 0 4px 8px rgba(249, 115, 22, 0.2);
 }
 
-
-/* .close-widget-btn i {
-  transition: transform 0.3s ease;
-}
-
-.close-widget-btn:hover i {
-  transform: translateX(-3px);
-} */
-
 .widget-box h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
@@ -794,15 +770,22 @@ body.dark #languageToggle {
   transition: color 0.3s;
 }
 
-#resultChart{
-  height: 120px;
-}
-
-.close-widget-btn,
 #resultChart {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
   animation: none !important;
   transform: none !important;
-  will-change: auto;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.mini-chart canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: none !important;
+  transform: none !important;
 }
 
 .close-widget-btn {
@@ -817,7 +800,6 @@ body.dark #languageToggle {
 .hidden {
   display: none;
 }
-
 
 /* MODAL STYLES */
 .login-modal {
@@ -1044,7 +1026,7 @@ body.dark #languageToggle {
   color: var(--primary-orange);
 }
 
-.close-login{
+.close-login {
   cursor: pointer;
   font-size: 1.8rem;
 }
@@ -1086,7 +1068,6 @@ body.dark #languageToggle {
   font-weight: 500;
 }
 
-/* Indicateur de force du mot de passe */
 .password-strength {
   height: 4px;
   background: var(--toggle-background-color);
@@ -1119,9 +1100,18 @@ body.dark #languageToggle {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .shake {
@@ -1143,4 +1133,102 @@ body.dark #languageToggle {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  color: var(--color-white);
+  font-family: var(--font-family);
+}
+
+.user-menu span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.user-btn {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family);
+}
+
+.user-btn:hover {
+  background-color: var(--primary);
+  color: var(--color-white);
+}
+
+.user-btn.danger {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.user-btn.danger:hover {
+  background-color: var(--error);
+  color: var(--color-white);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  color: var(--color-white);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#scoreList {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+#scoreList li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  border-left: 3px solid var(--primary-orange);
+  padding-left: 10px;
 }

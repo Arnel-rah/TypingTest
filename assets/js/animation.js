@@ -1,5 +1,16 @@
+window.addEventListener("storage", function (event) {
+  if (event.key === "isLoggedIn" || event.key === null) {
+    checkAuthState();
+  }
+});
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted || performance.navigation.type === 2) {
+    checkAuthState();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-  // ====================== Connexion Modal =======================
   const loginBtn = document.querySelector(".signup-btn");
   const loginModal = document.getElementById("loginModal");
   const closeLogin = document.getElementById("closeLogin");
@@ -21,15 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ====================== Thème =======================
-  const themeToggle = document.querySelector("#themeToggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
-  }
 
-  // ====================== Connexion / Navbar =======================
+  // ====================== Gestion Authentification =======================
   const loginForm = document.getElementById("loginForm");
   const demoBtn = document.getElementById("demoBtn");
   const signupBtn = document.querySelector(".signup-btn");
@@ -44,37 +48,80 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = document.getElementById("email").value;
       const username = email.split("@")[0];
 
-      demoBtn.classList.add("hidden");
-      signupBtn.classList.add("hidden");
-      userMenu.classList.remove("hidden");
-      usernameDisplay.textContent = username;
-
-      loginModal.classList.remove("show");
-
+      updateUIAfterLogin(username);
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("username", username);
+      window.dispatchEvent(new Event("storage"));
     });
   }
 
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
-      userMenu.classList.add("hidden");
-      demoBtn.classList.remove("hidden");
-      signupBtn.classList.remove("hidden");
-
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("username");
+      localStorage.clear();
+      updateUIAfterLogout();
+      // Notifier les autres onglets
+      window.dispatchEvent(new Event("storage"));
+      window.location.href = "index.html";
     });
   }
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const savedUsername = localStorage.getItem("username");
-  if (isLoggedIn && savedUsername) {
-    demoBtn.classList.add("hidden");
-    signupBtn.classList.add("hidden");
-    userMenu.classList.remove("hidden");
-    usernameDisplay.textContent = savedUsername;
+
+  checkAuthState();
+
+  // ====================== Gestion Scores =======================
+  const scoreBtn = document.getElementById("scoreBtn");
+  const scoreModal = document.getElementById("scoreModal");
+  const closeScoreModal = document.getElementById("closeScoreModal");
+
+  if (scoreBtn && scoreModal && closeScoreModal) {
+    scoreBtn.addEventListener("click", showUserScores);
+
+    closeScoreModal.addEventListener("click", () => {
+      scoreModal.classList.add("hidden");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === scoreModal) {
+        scoreModal.classList.add("hidden");
+      }
+    });
   }
 });
+
+// ====================== Fonctions Utilitaires =======================
+const checkAuthState = () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const savedUsername = localStorage.getItem("username");
+
+  if (isLoggedIn && savedUsername) {
+    updateUIAfterLogin(savedUsername);
+  } else {
+    updateUIAfterLogout();
+  }
+}
+
+const updateUIAfterLogin = (username) => {
+  const demoBtn = document.getElementById("demoBtn");
+  const signupBtn = document.querySelector(".signup-btn");
+  const userMenu = document.getElementById("userMenu");
+  const usernameDisplay = document.getElementById("usernameDisplay");
+  const loginModal = document.getElementById("loginModal");
+
+  if (demoBtn) demoBtn.classList.add("hidden");
+  if (signupBtn) signupBtn.classList.add("hidden");
+  if (userMenu) userMenu.classList.remove("hidden");
+  if (usernameDisplay) usernameDisplay.textContent = username;
+  if (loginModal) loginModal.classList.remove("show");
+}
+
+const  updateUIAfterLogout = () => {
+  const demoBtn = document.getElementById("demoBtn");
+  const signupBtn = document.querySelector(".signup-btn");
+  const userMenu = document.getElementById("userMenu");
+
+  if (demoBtn) demoBtn.classList.remove("hidden");
+  if (signupBtn) signupBtn.classList.remove("hidden");
+  if (userMenu) userMenu.classList.add("hidden");
+}
 
 const showUserScores = () => {
   const username = localStorage.getItem("username");
@@ -90,17 +137,20 @@ const showUserScores = () => {
     return;
   }
 
-  let message = ` Scores de ${username} :\n\n`;
+  document.getElementById("scoreUsername").textContent = username;
+
+  const list = document.getElementById("scoreList");
+  list.innerHTML = "";
+
   scores.forEach((score, i) => {
-    message += `#${i + 1} - ${score.date}\n→ WPM: ${score.wpm}, Mots: ${
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>#${i + 1}</strong> – ${
+      score.date
+    }<br>→ <strong>WPM:</strong> ${score.wpm}, <strong>Mots:</strong> ${
       score.correct
-    }, Erreurs: ${score.errors}\n\n`;
+    }, <strong>Erreurs:</strong> ${score.errors}`;
+    list.appendChild(li);
   });
 
-  alert(message);
-};
-
-const scoreBtn = document.getElementById("scoreBtn");
-if (scoreBtn) {
-  scoreBtn.addEventListener("click", showUserScores);
+  document.getElementById("scoreModal").classList.remove("hidden");
 }
