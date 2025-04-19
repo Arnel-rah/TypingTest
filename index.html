@@ -2,17 +2,16 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Typing</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bienvenue | Vanilla Typing</title>
     <!-- ========== FEUILLES DE STYLES ========== -->
     <link rel="stylesheet" href="assets/css/styles.css"/>
     <link rel="stylesheet" href="assets/css/responsive.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <!-- ========== BIBLIOTHÈQUE D'ANIMATION GSAP ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
   </head>
-
   <body>
     <!-- ================== BARRE DE NAVIGATION START =================== -->
     <nav class="navbar">
@@ -31,24 +30,31 @@
 
       <!-- BOUTONS DE NAVIGATION -->
       <div class="nav-buttons" id="navMenu">
-        <button class="demo-btn" data-i18n="demo">Démo</button>
-        <a href="login.html"><button class="signup-btn" data-i18n="signup">S’inscrire</button></a>
+        <button class="demo-btn" id="demoBtn" data-i18n="demo">Démo</button>
+        <div id="userMenu" class="user-menu">
+          <span id="usernameDisplay">
+            <i class="fa-solid fa-user"></i>
+            <strong data-i18n="user">Utilisateur</strong>
+          </span>
+          <button id="scoreBtn" class="user-btn">
+            <i class="fa-solid fa-chart-line"></i>
+            <span data-i18n="score">Score</span>
+          </button>
+          <button id="logoutBtn" class="user-btn danger">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span data-i18n="logout">Déconnexion</span>
+          </button>
+        </div>
+        <button class="signup-btn" data-i18n="signup">S’inscrire</button>
         <i class="fa-regular fa-user icon"></i>
         <div class="separator">|</div>
 
         <!-- SELECTEUR DE LANGUE PERSONNALISÉ -->
         <div class="language-selector">
           <button id="languageToggle">
-            <span id="flagIcon">🇫🇷</span>
+            <img id="flagIcon" src="assets/image/fr.jpg" alt="FR" >
             <span id="languageCode">FR</span>
           </button>
-        </div>
-
-        <!-- INTERRUPTEUR POUR LE THÈME SOMBRE/CLAIR -->
-        <div class="theme-toggle-switch" id="theme-switch">
-          <div class="toggle-thumb" id="toggle-thumb">
-            <i class="fa-solid fa-sun" id="theme-icon"></i>
-          </div>
         </div>
       </div>
     </nav>
@@ -102,9 +108,45 @@
       </section>
     </main>
     <!-- ================== CONTENU PRINCIPAL END =================== -->
-
-    <!-- ================== SCRIPTS JAVASCRIPT =================== -->
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/traduction.js"></script>
-  </body>
+     
+  <!-- ========== MODAL DE CONNEXION (POPUP) ========== -->
+<div class="login-modal hidden" id="loginModal">
+  <div class="login-modal-content">
+    <!-- Formulaire de Connexion -->
+    <div class="form-container" id="loginFormContainer">
+      <span class="close-login" id="closeLogin">&times;</span>
+      <h2>👋 Bienvenue</h2>
+      <p>Connectez-vous à votre compte</p>
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <div class="input-box">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" name="email" placeholder="Entrer votre email" required>
+        </div>
+        <label for="password">Mot de passe</label>
+        <div class="input-box">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe" required>
+        </div>
+        <a href="#" class="forgot">Mot de passe oublié ?</a>
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Se connecter
+        </button>
+        <div class="divider">
+          <span>ou continuer avec</span>
+        </div>
+        <div class="social-icons">
+          <i class="fab fa-google"></i>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-apple"></i>
+        </div>
+      </form>
+    </div>
+</div>
+  <!-- ================== SCRIPTS JAVASCRIPT =================== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/animation.js"></script>
+</body>
 </html>
