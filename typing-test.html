@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Typing</title>
 
     <!-- ========== FEUILLES DE STYLES ========== -->
-    <link rel="stylesheet" href="assets/css/styles.css"/>
-    <link rel="stylesheet" href="assets/css/responsive.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <!-- ========== BIBLIOTHÈQUE D'ANIMATION GSAP ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
@@ -41,7 +42,7 @@
         <!-- SELECTEUR DE LANGUE PERSONNALISÉ -->
         <div class="language-selector">
           <button id="languageToggle">
-            <span id="flagIcon">🇫🇷</span>
+            <img id="flagIcon" src="assets/image/fr.jpg" alt="FR" >
             <span id="languageCode">FR</span>
           </button>
         </div>
@@ -56,24 +57,25 @@
     </nav>
 
     <!-- ================== ZONE DE JEU =================== -->
-    <main class="game-container">
+    <main class="game-container fade-transition">
       <!-- En-tête du jeu -->
       <div class="game-header">
         <div class="mode-box">
           <i class="fa-solid fa-chess-queen"></i>
-          <span>Niveau : <strong id="difficultyDisplay">Facile</strong></span>
+          <span data-i18n="level">Niveau :</span>
+          <strong id="difficultyDisplay">Facile</strong>
         </div>
         <div class="timer-box">
           <i class="fa-solid fa-clock"></i>
           <span id="timer">30s</span>
         </div>
       </div>
-
+    
       <!-- Zone de frappe -->
       <div class="typing-area">
         <div class="text-to-type" id="textToType"></div>
       </div>
-
+    
       <!-- Statistiques -->
       <div class="stats">
         <div class="stat-card">
@@ -85,38 +87,40 @@
             <span class="stat-label" data-i18n="correct_words">Mots réussis</span>
           </div>
         </div>
-
+    
         <div class="stat-card">
           <div class="stat-icon error">
             <i class="fa-solid fa-bug"></i>
           </div>
           <div class="stat-content">
             <span class="stat-value" id="errorCount">0</span>
-            <span class="stat-label">Erreurs</span>
+            <span class="stat-label" data-i18n="errors">Erreurs</span>
           </div>
         </div>
-
+    
         <div class="stat-card">
           <div class="stat-icon primary">
             <i class="fa-solid fa-gauge-high"></i>
           </div>
           <div class="stat-content">
             <span class="stat-value" id="wpm">0</span>
-            <span class="stat-label">Mots/minute</span>
+            <span class="stat-label" data-i18n="wpm">Mots/minute</span>
           </div>
         </div>
       </div>
-
-      <!-- Boutons d'action -->
+    
       <div class="action-buttons">
         <button class="quit-btn" onclick="window.location.href='index.html'">
-          <i class="fa-solid fa-door-open"></i> Quitter
+          <i class="fa-solid fa-door-open"></i>
+          <span data-i18n="quit">Quitter</span>
         </button>
         <button class="retry-btn" onclick="startGame()">
-          <i class="fa-solid fa-rotate"></i> Recommencer
+          <i class="fa-solid fa-rotate"></i>
+          <span data-i18n="retry">Recommencer</span>
         </button>
       </div>
     </main>
+    
 
     <!-- Fenêtre de résultat -->
     <div id="resultModal" class="result-widget hidden">
@@ -136,11 +140,11 @@
             ><span id="displayErrors">0</span><small>Erreurs</small>
           </div>
         </div>
-    
+
         <div class="mini-chart">
-          <canvas id="resultChart" height="120"></canvas>
+          <canvas id="resultChart"></canvas>
         </div>
-        
+
         <!-- Bouton centré et agrandi -->
         <div class="button-container">
           <button class="close-widget-btn" onclick="closeModal()">
@@ -151,8 +155,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/js/logique.js"></script>
+    <script src="assets/js/teste.js"></script>
+    <!-- <script src="assets/js/traduction.js"></script> -->
+    <!-- <script src="assets/js/logique.js"></script> -->
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/traduction.js"></script>
   </body>
 </html>

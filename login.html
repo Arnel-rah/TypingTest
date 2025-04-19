@@ -15,63 +15,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   </head>
-  <body>
-    <!-- MAIN : PAGE DE CONNEXION -->
-    <main class="login-page">
-      <div class="container-login">
-        
-        <!-- SECTION GAUCHE (VIDE) AVEC IMAGE DE FOND OU CONTENU (peut être ajouté) -->
-        <div class="left"></div>
-
-        <!-- SECTION DROITE : FORMULAIRE DE CONNEXION -->
-        <div class="right">
-          <h2>Login</h2>
-          <form>
-            
-            <!-- CHAMP EMAIL -->
-            <label>Email</label>
-            <div class="input-box">
-              <!-- ICONE POUR L'EMAIL -->
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Enter your email" required/>
-            </div>
-
-            <!-- CHAMP MOT DE PASSE -->
-            <label>Password</label>
-            <div class="input-box">
-              <!-- ICONE POUR LE MDP -->
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Enter your password" required/>
-            </div>
-
-            <!-- Lien pour mot de passe oublié -->
-            <a href="#" class="forgot">Forgot Password?</a>
-
-            <!-- BOUTON DE CONNEXION -->
-            <button type="submit" class="login-btn">Log In</button>
-
-            <!-- DIVIDEUR POUR LES MÉTHODES DE CONNEXION -->
-            <div class="divider">
-              <span>Or Continue With</span>
-            </div>
-
-            <!-- ICÔNES DES RÉSEAUX SOCIAUX POUR LA CONNEXION -->
-            <div class="social-icons">
-              <!-- ICÔNE GOOGLE -->
-              <i class="fab fa-google"></i>
-              <!-- ICÔNE FACEBOOK -->
-              <i class="fab fa-facebook"></i>
-              <!-- ICÔNE APPLE -->
-              <i class="fab fa-apple"></i>
-            </div>
-
-            <!-- LIEN POUR S'INSCRIRE -->
-            <p class="signup">
-              Don’t have an account? <a href="#">Sign Up here</a>
-            </p>
-          </form>
-        </div>
+  <body class="login-page">
+    <div class="container-login">
+      <div class="left"></div>
+      <div class="right">
+        <form>
+          <h2>👋 Bienvenue</h2>
+          <p>Connectez-vous à votre compte</p>
+  
+          <label for="email">Email</label>
+          <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Entrer votre email" required />
+          </div>
+  
+          <label for="password">Mot de passe</label>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe" required />
+          </div>
+  
+          <a href="#" class="forgot">Mot de passe oublié ?</a>
+  
+          <button type="submit" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i> Se connecter
+          </button>
+  
+          <div class="divider"><span>ou continuer avec</span></div>
+  
+          <div class="social-icons">
+            <i class="fab fa-google"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-apple"></i>
+          </div>
+  
+          <p class="signup">
+            Pas encore de compte ? <a href="#">Créer un compte</a>
+          </p>
+        </form>
       </div>
-    </main>
+    </div>
   </body>
 </html>

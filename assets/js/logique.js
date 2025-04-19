@@ -1,3 +1,5 @@
+
+
 const textElement = document.getElementById("textToType");
 const timerDisplay = document.getElementById("timer");
 const wordCountDisplay = document.getElementById("wordCount");
@@ -64,7 +66,7 @@ const generateText = () => {
     .join(" ");
 };
 
-const startTimer = () => {
+const startTimer = (duration) => {
   startTime = new Date();
   timerInterval = setInterval(() => {
     timeLeft--;
@@ -80,10 +82,11 @@ const startTimer = () => {
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      endGame();
+      endGame(duration);
     }
   }, 1000);
 };
+
 
 const startGame = () => {
   const { difficulty, duration } = getQueryParams();
@@ -295,6 +298,8 @@ const endGame = () => {
   document.getElementById("displayErrors").textContent = errors;
   createResultChart(wpm, wordCount, errors);
 };
+
+
 
 document.addEventListener("keydown", handleKeyPress);
 window.addEventListener("load", startGame);
